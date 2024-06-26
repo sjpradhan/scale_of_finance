@@ -4,10 +4,18 @@ import streamlit as st
 
 def main():
 
-    st.subheader("Upload Scale Of Finance Excel File")
 
-    # File uploader
-    uploaded_file = st.file_uploader("Choose an Excel file", type=["xlsx", "xls"])
+    profile_icon = r'C:\Bankbenchers\PythonProject\scale_of_finance\salary.png'
+
+    st.set_page_config(page_title="SOF-Upload",page_icon = profile_icon)
+
+    st.header("Upload Scale Of Finance Excel File 💾")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        # File uploader
+        uploaded_file = st.file_uploader("Choose an Excel file 📁", type=["xlsx", "xls"])
 
     if uploaded_file is not None:
         def read_from_uploaded_file ():
@@ -15,6 +23,8 @@ def main():
             df['SOF Amount'].fillna(0, inplace=True)
             return df
         df = read_from_uploaded_file ()
+    else:
+        st.write("Please upload file to get insight ⚡")
 
     try:
         try:
@@ -134,7 +144,6 @@ def main():
             st.table(unique_crop_type)
     except Exception as e:
         pass
-        st.error(e)
 
 if __name__ == "__main__":
     main()
