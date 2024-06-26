@@ -5,7 +5,7 @@ import streamlit as st
 def main():
 
 
-    profile_icon = r'C:\Bankbenchers\PythonProject\scale_of_finance\salary.png'
+    profile_icon = "https://raw.githubusercontent.com/sjpradhan/scale_of_finance/master/salary.png"
 
     st.set_page_config(page_title="SOF-Upload",page_icon = profile_icon)
 
