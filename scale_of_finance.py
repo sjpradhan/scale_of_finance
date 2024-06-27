@@ -17,14 +17,17 @@ def main():
         # File uploader
         uploaded_file = st.file_uploader(":orange[Choose an Excel file] 📁", type=["xlsx", "xls"])
 
-    if uploaded_file is not None:
+    try:
+        if uploaded_file is not None:
 
-        def read_from_uploaded_file ():
-            df = pd.read_excel(uploaded_file)
-            df['SOF Amount'].fillna(0, inplace=True)
-            df['Numeric Value of Area Unit'] = 1
-            return df
-        df = read_from_uploaded_file ()
+            def read_from_uploaded_file ():
+                df = pd.read_excel(uploaded_file)
+                df['SOF Amount'].fillna(0, inplace=True)
+                df['Numeric Value of Area Unit'] = 1
+                return df
+            df = read_from_uploaded_file ()
+    except Exception as e:
+        st.error("Please upload appropriate file with correct header")
     else:
         st.write("Please upload file to get insight ⚡")
 
