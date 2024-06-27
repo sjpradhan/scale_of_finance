@@ -27,12 +27,13 @@ def main():
                 return df
             df = read_from_uploaded_file ()
     except Exception as e:
-        st.error("Please upload appropriate file with correct header")
+        st.error("Wrong file, please upload appropriate file with correct header.")
     else:
         st.write("Please upload file to get insight ⚡")
 
     try:
-        st.write(":orange[Raw Data Preview:]",df.head(5))
+        unique_state_name = pd.DataFrame(df['State Name'].unique(),columns= ['State Name'])
+        st.write(":orange[Raw Data Preview Of:]",unique_state_name,df.head(5))
     except:
         pass
 
