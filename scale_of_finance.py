@@ -29,8 +29,7 @@ def main():
         st.write("Please upload file to get insight ⚡")
 
     try:
-        st.write(":orange[Raw Data Preview:]")
-        st.write(df.head(5))
+        st.write(":orange[Raw Data Preview:]",df.head(5))
     except:
         pass
 
